@@ -11,7 +11,7 @@ class ActivityDetailsViewModel: ObservableObject {
     private let apiManager: ApiManagerRoutes
     private let id: Int
     
-    @Published var state: State<Activity> = .idle
+    @Published var state: State<ActivityDetailsViewData> = .idle
     
     required init(apiManager: ApiManagerRoutes, id: Int) {
         self.apiManager = apiManager
@@ -24,7 +24,8 @@ class ActivityDetailsViewModel: ObservableObject {
             switch response {
             case .success(let activity):
                 print(activity)
-                self.state = .loaded(activity)
+                let viewData = ActivityDetailsViewData(activity: activity)
+                self.state = .loaded(viewData)
             case .failure(let error):
                 self.state = .failed(error)
             }

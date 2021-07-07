@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ErrorView: View {
     var onRetry: (() -> Void)?
-    private let error: Error
+    let error: Error
     
     /// Init with error and function to trigger in order to retry api call
     init(error: Error, retry: (() -> Void)?) {
@@ -24,23 +24,9 @@ struct ErrorView: View {
                 .font(.body)
                 .multilineTextAlignment(.center)
             
-            Button(action: {
+            ActionButton(title: "Retry", image: "arrow.clockwise", select: {
                 onRetry?()
-            }) {
-                HStack {
-                    Image(systemName: "arrow.clockwise")
-                        .font(.headline)
-                    Text("Retry")
-                        .fontWeight(.semibold)
-                        .font(.headline)
-                }
-                .padding(.horizontal, 40)
-                .padding(.vertical, 20)
-                .foregroundColor(.white)
-                .background(Color.main)
-                .cornerRadius(40)
-            }
-            
+            })
         }
     }
 }

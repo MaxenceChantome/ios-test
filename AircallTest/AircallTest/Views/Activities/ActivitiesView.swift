@@ -49,35 +49,3 @@ struct ActivtiesView_Previews: PreviewProvider {
         ActivitiesView(viewModel: viewModel)
     }
 }
-
-/*
- struct ActivitiesView : View {
-     @ObservedObject var viewModel: ActivitiesViewModel
-     
-     var body: some View {
-         NavigationView {
-             VStack {
-                 Button(action: {
-                     viewModel.load()
-                 }, label: {
-                     Text("load")
-                         .foregroundColor(Color.main)
-                     
-                 })
-                 .foregroundColor(.red)
-                 .accentColor(.green)
-                 
-                 List(viewModel.activities) { activity in
-                     let detailsViewModel = ActivityDetailsViewModel(apiManager: viewModel.apiManager, id: activity.id)
-                     NavigationLink(destination: ActivityDetailsView(viewModel: detailsViewModel)) {
-                         ActivityRow(activity: activity)
-                     }
-                 }
-             }
-             .navigationTitle("History")
-         }
-         .navigationViewStyle(StackNavigationViewStyle())
-     }
- }
-
- */

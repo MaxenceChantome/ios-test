@@ -7,11 +7,10 @@
 
 import Foundation
 
-
 class ActivitiesViewModel: ObservableObject {
     let apiManager: ApiManagerRoutes
     
-    @Published var state: State<Activities> = .idle
+    @Published var state: State<[ActivityRowViewData]> = .idle
     
     required init(apiManager: ApiManagerRoutes) {
         self.apiManager = apiManager
@@ -23,7 +22,8 @@ class ActivitiesViewModel: ObservableObject {
             guard let self = self else { return }
             switch response {
             case .success(let activities):
-                self.state = .loaded(activities)
+                let viewData = activities.map { ActivityRowViewData(activity: $0) }
+                self.state = .loaded(viewData)
             case .failure(let error):
                 self.state = .failed(error)
             }

@@ -10,6 +10,7 @@
 		D44991ED2696273F005DC32A /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44991EC2696273F005DC32A /* State.swift */; };
 		D44991F82696283E005DC32A /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44991F72696283E005DC32A /* ErrorView.swift */; };
 		D449920626963174005DC32A /* ActivityDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D449920526963174005DC32A /* ActivityDetailsView.swift */; };
+		D449921326964966005DC32A /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D449921226964966005DC32A /* ActionButton.swift */; };
 		D46EF6F92693744D005B6BA5 /* AircallTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46EF6F82693744D005B6BA5 /* AircallTestApp.swift */; };
 		D46EF6FD2693744F005B6BA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D46EF6FC2693744F005B6BA5 /* Assets.xcassets */; };
 		D46EF7002693744F005B6BA5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D46EF6FF2693744F005B6BA5 /* Preview Assets.xcassets */; };
@@ -25,7 +26,7 @@
 		D46EF76326939DE8005B6BA5 /* Date+DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46EF76226939DE8005B6BA5 /* Date+DateFormatter.swift */; };
 		D46EF76926939F02005B6BA5 /* MockApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46EF76826939F02005B6BA5 /* MockApiManager.swift */; };
 		D4C88C832693B05800C2D4C1 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C88C822693B05800C2D4C1 /* Color.swift */; };
-		D4C88CB72694B36200C2D4C1 /* CallStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C88CB62694B36100C2D4C1 /* CallStatus.swift */; };
+		D4C88CB72694B36200C2D4C1 /* CallStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C88CB62694B36100C2D4C1 /* CallStatusView.swift */; };
 		D4C88CC12694B44C00C2D4C1 /* ActivityDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C88CC02694B44C00C2D4C1 /* ActivityDetailsViewModel.swift */; };
 		D4C88CE52695D7CF00C2D4C1 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C88CE42695D7CF00C2D4C1 /* MockData.swift */; };
 		D4C88CEA2695D8DC00C2D4C1 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C88CE92695D8DC00C2D4C1 /* String.swift */; };
@@ -52,6 +53,7 @@
 		D44991EC2696273F005DC32A /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		D44991F72696283E005DC32A /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		D449920526963174005DC32A /* ActivityDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsView.swift; sourceTree = "<group>"; };
+		D449921226964966005DC32A /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		D46EF6F52693744D005B6BA5 /* AircallTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AircallTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D46EF6F82693744D005B6BA5 /* AircallTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircallTestApp.swift; sourceTree = "<group>"; };
 		D46EF6FC2693744F005B6BA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -73,7 +75,7 @@
 		D46EF76226939DE8005B6BA5 /* Date+DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+DateFormatter.swift"; sourceTree = "<group>"; };
 		D46EF76826939F02005B6BA5 /* MockApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiManager.swift; sourceTree = "<group>"; };
 		D4C88C822693B05800C2D4C1 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		D4C88CB62694B36100C2D4C1 /* CallStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallStatus.swift; sourceTree = "<group>"; };
+		D4C88CB62694B36100C2D4C1 /* CallStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallStatusView.swift; sourceTree = "<group>"; };
 		D4C88CC02694B44C00C2D4C1 /* ActivityDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModel.swift; sourceTree = "<group>"; };
 		D4C88CE42695D7CF00C2D4C1 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		D4C88CE92695D8DC00C2D4C1 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -244,8 +246,9 @@
 		D4C88CB52694B33700C2D4C1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				D4C88CB62694B36100C2D4C1 /* CallStatus.swift */,
+				D4C88CB62694B36100C2D4C1 /* CallStatusView.swift */,
 				D44991F72696283E005DC32A /* ErrorView.swift */,
+				D449921226964966005DC32A /* ActionButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -382,13 +385,14 @@
 				D46EF76926939F02005B6BA5 /* MockApiManager.swift in Sources */,
 				D4C88C832693B05800C2D4C1 /* Color.swift in Sources */,
 				D46EF76326939DE8005B6BA5 /* Date+DateFormatter.swift in Sources */,
-				D4C88CB72694B36200C2D4C1 /* CallStatus.swift in Sources */,
+				D4C88CB72694B36200C2D4C1 /* CallStatusView.swift in Sources */,
 				D4C88CE52695D7CF00C2D4C1 /* MockData.swift in Sources */,
 				D46EF73626937573005B6BA5 /* ActivitiesView.swift in Sources */,
 				D44991F82696283E005DC32A /* ErrorView.swift in Sources */,
 				D4C88CC12694B44C00C2D4C1 /* ActivityDetailsViewModel.swift in Sources */,
 				D46EF75D269398F7005B6BA5 /* ActivityRow.swift in Sources */,
 				D46EF73E2693757D005B6BA5 /* ActivitiesViewModel.swift in Sources */,
+				D449921326964966005DC32A /* ActionButton.swift in Sources */,
 				D449920626963174005DC32A /* ActivityDetailsView.swift in Sources */,
 				D46EF744269375E8005B6BA5 /* ApiEndpoints.swift in Sources */,
 				D46EF74E2693791E005B6BA5 /* ApiResponse.swift in Sources */,
