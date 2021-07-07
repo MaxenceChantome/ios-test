@@ -9,7 +9,7 @@ import Foundation
 
 public enum ApiEndpoints {
     case activities
-    case activity(id: String)
+    case activity(id: Int)
     case reset
 }
 
@@ -22,17 +22,6 @@ extension ApiEndpoints {
             return "/activities/\(id)"
         case .reset:
             return "/reset"
-        }
-    }
-    
-    var mockFilename: String {
-        switch self {
-        case .activities:
-            return "MockActivities"
-        case .activity(id: _):
-            return ""
-        case .reset:
-            return ""
         }
     }
 }

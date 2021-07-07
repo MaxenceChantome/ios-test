@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D44991ED2696273F005DC32A /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44991EC2696273F005DC32A /* State.swift */; };
+		D44991F82696283E005DC32A /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44991F72696283E005DC32A /* ErrorView.swift */; };
+		D449920626963174005DC32A /* ActivityDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D449920526963174005DC32A /* ActivityDetailsView.swift */; };
 		D46EF6F92693744D005B6BA5 /* AircallTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46EF6F82693744D005B6BA5 /* AircallTestApp.swift */; };
 		D46EF6FD2693744F005B6BA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D46EF6FC2693744F005B6BA5 /* Assets.xcassets */; };
 		D46EF7002693744F005B6BA5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D46EF6FF2693744F005B6BA5 /* Preview Assets.xcassets */; };
@@ -21,8 +24,11 @@
 		D46EF75D269398F7005B6BA5 /* ActivityRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46EF75C269398F7005B6BA5 /* ActivityRow.swift */; };
 		D46EF76326939DE8005B6BA5 /* Date+DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46EF76226939DE8005B6BA5 /* Date+DateFormatter.swift */; };
 		D46EF76926939F02005B6BA5 /* MockApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46EF76826939F02005B6BA5 /* MockApiManager.swift */; };
-		D46EF77326939F38005B6BA5 /* MockActivities.json in Resources */ = {isa = PBXBuildFile; fileRef = D46EF77226939F38005B6BA5 /* MockActivities.json */; };
 		D4C88C832693B05800C2D4C1 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C88C822693B05800C2D4C1 /* Color.swift */; };
+		D4C88CB72694B36200C2D4C1 /* CallStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C88CB62694B36100C2D4C1 /* CallStatus.swift */; };
+		D4C88CC12694B44C00C2D4C1 /* ActivityDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C88CC02694B44C00C2D4C1 /* ActivityDetailsViewModel.swift */; };
+		D4C88CE52695D7CF00C2D4C1 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C88CE42695D7CF00C2D4C1 /* MockData.swift */; };
+		D4C88CEA2695D8DC00C2D4C1 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C88CE92695D8DC00C2D4C1 /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +49,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D44991EC2696273F005DC32A /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		D44991F72696283E005DC32A /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		D449920526963174005DC32A /* ActivityDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsView.swift; sourceTree = "<group>"; };
 		D46EF6F52693744D005B6BA5 /* AircallTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AircallTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D46EF6F82693744D005B6BA5 /* AircallTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircallTestApp.swift; sourceTree = "<group>"; };
 		D46EF6FC2693744F005B6BA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -63,8 +72,11 @@
 		D46EF75C269398F7005B6BA5 /* ActivityRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRow.swift; sourceTree = "<group>"; };
 		D46EF76226939DE8005B6BA5 /* Date+DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+DateFormatter.swift"; sourceTree = "<group>"; };
 		D46EF76826939F02005B6BA5 /* MockApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiManager.swift; sourceTree = "<group>"; };
-		D46EF77226939F38005B6BA5 /* MockActivities.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockActivities.json; sourceTree = "<group>"; };
 		D4C88C822693B05800C2D4C1 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		D4C88CB62694B36100C2D4C1 /* CallStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallStatus.swift; sourceTree = "<group>"; };
+		D4C88CC02694B44C00C2D4C1 /* ActivityDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewModel.swift; sourceTree = "<group>"; };
+		D4C88CE42695D7CF00C2D4C1 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		D4C88CE92695D8DC00C2D4C1 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +104,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D44991EB2696271F005DC32A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D44991EC2696273F005DC32A /* State.swift */,
+				D46EF76126939DD0005B6BA5 /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		D46EF6EC2693744D005B6BA5 = {
 			isa = PBXGroup;
 			children = (
@@ -118,10 +139,10 @@
 				D46EF6F82693744D005B6BA5 /* AircallTestApp.swift */,
 				D46EF6FC2693744F005B6BA5 /* Assets.xcassets */,
 				D46EF7012693744F005B6BA5 /* Info.plist */,
-				D46EF72F269374DE005B6BA5 /* App */,
+				D46EF72F269374DE005B6BA5 /* Views */,
 				D46EF72626937455005B6BA5 /* Models */,
+				D44991EB2696271F005DC32A /* Utils */,
 				D46EF742269375D6005B6BA5 /* Networking */,
-				D46EF76126939DD0005B6BA5 /* Extensions */,
 				D46EF6FE2693744F005B6BA5 /* Preview Content */,
 			);
 			path = AircallTest;
@@ -162,13 +183,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		D46EF72F269374DE005B6BA5 /* App */ = {
+		D46EF72F269374DE005B6BA5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D4C88CB52694B33700C2D4C1 /* Components */,
 				D46EF73326937529005B6BA5 /* Activities */,
-				D46EF7342693754E005B6BA5 /* ActivityDetail */,
+				D46EF7342693754E005B6BA5 /* ActivityDetails */,
 			);
-			path = App;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		D46EF73326937529005B6BA5 /* Activities */ = {
@@ -181,11 +203,13 @@
 			path = Activities;
 			sourceTree = "<group>";
 		};
-		D46EF7342693754E005B6BA5 /* ActivityDetail */ = {
+		D46EF7342693754E005B6BA5 /* ActivityDetails */ = {
 			isa = PBXGroup;
 			children = (
+				D4C88CC02694B44C00C2D4C1 /* ActivityDetailsViewModel.swift */,
+				D449920526963174005DC32A /* ActivityDetailsView.swift */,
 			);
-			path = ActivityDetail;
+			path = ActivityDetails;
 			sourceTree = "<group>";
 		};
 		D46EF742269375D6005B6BA5 /* Networking */ = {
@@ -202,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				D46EF76226939DE8005B6BA5 /* Date+DateFormatter.swift */,
+				D4C88CE92695D8DC00C2D4C1 /* String.swift */,
 				D4C88C822693B05800C2D4C1 /* Color.swift */,
 			);
 			path = Extensions;
@@ -211,17 +236,18 @@
 			isa = PBXGroup;
 			children = (
 				D46EF76826939F02005B6BA5 /* MockApiManager.swift */,
-				D46EF77026939F13005B6BA5 /* JSON */,
+				D4C88CE42695D7CF00C2D4C1 /* MockData.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
 		};
-		D46EF77026939F13005B6BA5 /* JSON */ = {
+		D4C88CB52694B33700C2D4C1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				D46EF77226939F38005B6BA5 /* MockActivities.json */,
+				D4C88CB62694B36100C2D4C1 /* CallStatus.swift */,
+				D44991F72696283E005DC32A /* ErrorView.swift */,
 			);
-			path = JSON;
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,7 +355,6 @@
 			files = (
 				D46EF7002693744F005B6BA5 /* Preview Assets.xcassets in Resources */,
 				D46EF6FD2693744F005B6BA5 /* Assets.xcassets in Resources */,
-				D46EF77326939F38005B6BA5 /* MockActivities.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,13 +382,20 @@
 				D46EF76926939F02005B6BA5 /* MockApiManager.swift in Sources */,
 				D4C88C832693B05800C2D4C1 /* Color.swift in Sources */,
 				D46EF76326939DE8005B6BA5 /* Date+DateFormatter.swift in Sources */,
+				D4C88CB72694B36200C2D4C1 /* CallStatus.swift in Sources */,
+				D4C88CE52695D7CF00C2D4C1 /* MockData.swift in Sources */,
 				D46EF73626937573005B6BA5 /* ActivitiesView.swift in Sources */,
+				D44991F82696283E005DC32A /* ErrorView.swift in Sources */,
+				D4C88CC12694B44C00C2D4C1 /* ActivityDetailsViewModel.swift in Sources */,
 				D46EF75D269398F7005B6BA5 /* ActivityRow.swift in Sources */,
 				D46EF73E2693757D005B6BA5 /* ActivitiesViewModel.swift in Sources */,
+				D449920626963174005DC32A /* ActivityDetailsView.swift in Sources */,
 				D46EF744269375E8005B6BA5 /* ApiEndpoints.swift in Sources */,
 				D46EF74E2693791E005B6BA5 /* ApiResponse.swift in Sources */,
 				D46EF6F92693744D005B6BA5 /* AircallTestApp.swift in Sources */,
+				D44991ED2696273F005DC32A /* State.swift in Sources */,
 				D46EF749269375F4005B6BA5 /* ApiManager.swift in Sources */,
+				D4C88CEA2695D8DC00C2D4C1 /* String.swift in Sources */,
 				D46EF7282693748B005B6BA5 /* Activities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

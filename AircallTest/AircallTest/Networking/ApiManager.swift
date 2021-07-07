@@ -10,8 +10,8 @@ import Combine
 
 protocol ApiManagerRoutes {
     func getActivities(completion: @escaping(Result<Activities, Error>) -> Void)
-    func getActivity(id: String, completion: @escaping(Result<Activity, Error>) -> Void)
-    func archiveActivity(id: String, completion: @escaping(Result<ApiResponse, Error>) -> Void)
+    func getActivity(id: Int, completion: @escaping(Result<Activity, Error>) -> Void)
+    func archiveActivity(id: Int, completion: @escaping(Result<ApiResponse, Error>) -> Void)
     func resetActivitiescompletion(completion: @escaping(Result<ApiResponse, Error>) -> Void)
 }
 
@@ -24,10 +24,12 @@ class ApiManager: ApiManagerRoutes {
         get(endpoint: .activities, completion: completion)
     }
     
-    func getActivity(id: String, completion: @escaping(Result<Activity, Error>) -> Void) {
+    func getActivity(id: Int, completion: @escaping(Result<Activity, Error>) -> Void) {
+        let endoint = ApiEndpoints.activity(id: id)
+        get(endpoint: endoint, completion: completion)
     }
     
-    func archiveActivity(id: String, completion: @escaping (Result<ApiResponse, Error>) -> Void) {
+    func archiveActivity(id: Int, completion: @escaping (Result<ApiResponse, Error>) -> Void) {
     }
     
     

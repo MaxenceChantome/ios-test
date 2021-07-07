@@ -13,20 +13,7 @@ struct ActivityRow: View {
     
     var body: some View {
         HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 16) {
-            
-            let callImage = Image(systemName: activity.direction == .inbound ?
-                                    "phone.arrow.up.right" :
-                                    "phone.arrow.down.left")
-                .font(.title)
-            switch activity.callType {
-            case .missed:
-                callImage.foregroundColor(Color.red)
-            case .voicemail:
-                callImage.foregroundColor(Color.orange)
-            case .answered:
-                callImage.foregroundColor(Color.green)
-            
-            }
+            CallStatus(activity: activity)
             
             VStack(alignment: .leading, spacing: 8) {
                 Text(activity.to ?? "Unknown number")
@@ -49,9 +36,17 @@ struct ActivityRow: View {
             }, label: {
                 Image(systemName: "exclamationmark.circle")
                     .font(.title2)
-                    .foregroundColor(Color.primary)
+                    .foregroundColor(Color.main)
             })
         }
     }
-    
+}
+
+struct ActivityRow_Previews: PreviewProvider {
+    static var previews: some View {
+        ForEach(Activities.mockedData) { activity in
+            ActivityRow(activity: activity)
+                .previewLayout(.fixed(width: 400, height: 60))
+        }
+    }
 }

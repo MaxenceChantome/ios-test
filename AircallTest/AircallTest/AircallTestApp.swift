@@ -18,7 +18,7 @@ struct AircallTestApp: App {
     var body: some Scene {
         WindowGroup {
             let viewModel = ActivitiesViewModel(apiManager: apiManager)
-            RepositoryListView(viewModel: viewModel)
+            ActivitiesView(viewModel: viewModel)
         }
     }
 }
