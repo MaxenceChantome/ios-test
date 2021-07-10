@@ -9,8 +9,7 @@ import Foundation
 
 /// Used when fetching data is needed
 /// Allows the view to update its state if needed
-
-enum State<T> {
+enum LoadingState<T> {
     case idle
     case loading
     case failed(Error)

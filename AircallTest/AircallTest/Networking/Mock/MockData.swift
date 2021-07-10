@@ -8,7 +8,6 @@
 import Foundation
 
 #if DEBUG
-
 extension Activities {
     static let mockedData: Activities = [
         Activity(id: 7834,

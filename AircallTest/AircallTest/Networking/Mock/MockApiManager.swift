@@ -16,10 +16,7 @@ class MockApiManager: ApiManagerRoutes {
         completion(.success(Activity.mockedData))
     }
     
-    func archiveActivity(id: Int, completion: @escaping (Result<ApiResponse, Error>) -> Void) {
-    }
-    
-    
-    func resetActivitiescompletion(completion: @escaping(Result<ApiResponse, Error>) -> Void) {
+    func archiveActivity(id: Int, completion: @escaping (Result<Activity, Error>) -> Void) {
+        completion(.success(Activity.mockedData))
     }
 }

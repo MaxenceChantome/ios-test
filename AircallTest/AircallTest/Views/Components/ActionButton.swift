@@ -11,12 +11,14 @@ import SwiftUI
 struct ActionButton: View {
     private let title: String
     private let image: String
+    private let backgroundColor: Color
     private let onSelect: (() -> Void)?
     
-    init(title: String, image: String, select: (() -> Void)?) {
+    init(title: String, image: String, backgroundColor: Color? = .main, onSelect: (() -> Void)?) {
         self.title = title
         self.image = image
-        self.onSelect = select
+        self.backgroundColor = backgroundColor ?? .main
+        self.onSelect = onSelect
     }
     
     var body: some View {
@@ -35,7 +37,7 @@ struct ActionButton: View {
                 .padding(.horizontal, 40)
                 .padding(.vertical, 20)
                 .foregroundColor(.white)
-                .background(Color.main)
+                .background(backgroundColor)
                 .cornerRadius(40)
             }
             Spacer()

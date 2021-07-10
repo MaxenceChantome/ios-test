@@ -7,21 +7,21 @@
 
 import Foundation
 
-public enum ApiEndpoints {
+public enum ApiEndpoint {
     case activities
     case activity(id: Int)
-    case reset
+    case archiveActivity(id: Int, body: [String: Any])
 }
 
-extension ApiEndpoints {
-    var path: String {
+extension ApiEndpoint {
+    var request: Request? {
         switch self {
         case .activities:
-            return "/activities"
+            return Request(path: "/activities", method: .get)
         case .activity(id: let id):
-            return "/activities/\(id)"
-        case .reset:
-            return "/reset"
+            return Request(path: "/activities/\(id)", method: .get)
+        case .archiveActivity(id: let id, let body):
+            return Request(path: "/activities/\(id)", method: .post, body: body)
         }
     }
 }

@@ -21,30 +21,27 @@ struct ActivityDetailsViewData {
     
     init(activity: Activity) {
         status = CallStatusViewData(activity: activity)
-        type = activity.callType == .voicemail ? "Straight to voicemail !" : "\(activity.callType.rawValue) call"
-        from = activity.from
-        via = activity.via
-        to = activity.to ?? "Unkwown"
+        type = activity.callType == .voicemail ? "Voicemail" : "\(activity.callType.rawValue) call"
+        from = "From \(activity.from)"
+        via = "Via \(activity.via)"
+        to = "To \(activity.to ?? "Unkwown")"
         duration = "\(activity.duration) seconds"
         date = activity.createdAt
     }
 }
 
 struct ActivityDetailsView: View {
-    @ObservedObject var viewModel: ActivityDetailsViewModel
+    @State private var showArchiveConfirmation = false
+    @ObservedObject private var viewModel: ActivityDetailsViewModel
+    
+    
+    init(viewModel: ActivityDetailsViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         VStack {
-            switch viewModel.state {
-            case .idle:
-                Color.clear.onAppear {
-                    loadData()
-                }
-            case .loading:
-                ProgressView()
-            case .failed( let error):
-                ErrorView(error: error, retry: { loadData() })
-            case .loaded(let activity):
+            LoadableView(viewModel: viewModel) { activity in
                 VStack(alignment: .leading) {
                     HStack(alignment: .center) {
                         Spacer()
@@ -64,24 +61,21 @@ struct ActivityDetailsView: View {
                         Spacer()
                         
                     }
-                    
                     Divider()
-                    
                     dateRow(activity: activity)
-                    
                     Divider()
-                    
                     callRow(activity: activity)
-                    
                     Divider()
-
-                    ActionButton(title: "Archive", image: "archivebox.fill", select: { archiveCall() } )
-                        .padding()
+                    ActionButton(title: "Archive", image: "archivebox.fill", onSelect: {
+                        showArchiveConfirmation.toggle()
+                    })
                 }
                 .padding()
                 .font(.body)
                 Spacer()
-                
+                ConfirmArchiveView(isPresented: $showArchiveConfirmation, id: .constant(viewModel.id), viewModel: .init(apiManager: viewModel.apiManager), onFinish: {
+                    //todo
+                })
             }
         }
     }
@@ -101,13 +95,6 @@ struct ActivityDetailsView: View {
             Text(activity.to)
             Text(activity.via)
         }
-    }
-    
-    private func archiveCall() {
-    }
-    
-    private func loadData() {
-        viewModel.load()
     }
 }
 

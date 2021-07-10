@@ -7,11 +7,18 @@
 
 import Foundation
 
-class ActivityDetailsViewModel: ObservableObject {
-    private let apiManager: ApiManagerRoutes
-    private let id: Int
+protocol ActivityDetailsViewModelType: LoadableViewModelType {
+    init(apiManager: ApiManagerRoutes, id: Int)
     
-    @Published var state: State<ActivityDetailsViewData> = .idle
+    var id: Int { get }
+    var apiManager: ApiManagerRoutes { get }
+}
+
+class ActivityDetailsViewModel: ActivityDetailsViewModelType {
+    var apiManager: ApiManagerRoutes
+    var id: Int
+    
+    @Published var state: LoadingState<ActivityDetailsViewData> = .idle
     
     required init(apiManager: ApiManagerRoutes, id: Int) {
         self.apiManager = apiManager
@@ -19,11 +26,11 @@ class ActivityDetailsViewModel: ObservableObject {
     }
     
     func load() {
+        state = .loading
         apiManager.getActivity(id: id) { [weak self] response in
             guard let self = self else { return }
             switch response {
             case .success(let activity):
-                print(activity)
                 let viewData = ActivityDetailsViewData(activity: activity)
                 self.state = .loaded(viewData)
             case .failure(let error):

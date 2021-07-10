@@ -8,38 +8,38 @@
 import SwiftUI
 
 struct ActivitiesView : View {
-    @ObservedObject var viewModel: ActivitiesViewModel
+    @State private var showArchiveConfirmation = false
+    @State private var selectedCallId: Int = 0
+    @ObservedObject private var viewModel: ActivitiesViewModel
+    
+    init(viewModel: ActivitiesViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         NavigationView {
-            VStack {
-                
-                switch viewModel.state {
-                case .idle:
-                    Color.clear.onAppear {
-                        loadData()
-                    }
-                case .loading:
-                    ProgressView()
-                case .failed( let error):
-                    ErrorView(error: error, retry: { loadData() })
-                case .loaded(let activities):
-                    List(activities) { activity in
-                        let detailsViewModel = ActivityDetailsViewModel(apiManager: viewModel.apiManager, id: activity.id)
-                        NavigationLink(destination: ActivityDetailsView(viewModel: detailsViewModel)) {
-                            ActivityRow(activity: activity)
+            ZStack {
+                VStack {
+                    LoadableView(viewModel: viewModel) { activities in
+                        List(activities) { activity in
+                            NavigationLink(destination: ActivityDetailsView(viewModel: .init(apiManager: viewModel.apiManager, id: activity.id))) {
+                                ActivityRow(activity: activity, onArchive: {
+                                    // if archive button is selected, select call id and show archive confirmation alert
+                                    selectedCallId = activity.id
+                                    showArchiveConfirmation.toggle()
+                                })
+                            }
                         }
                     }
                 }
-                
+                ConfirmArchiveView(isPresented: $showArchiveConfirmation, id: $selectedCallId, viewModel: .init(apiManager: viewModel.apiManager), onFinish: {
+                    showArchiveConfirmation = false
+                    viewModel.load()
+                })
             }
             .navigationTitle("History")
         }
         .navigationViewStyle(StackNavigationViewStyle())
-    }
-    
-    private func loadData() {
-        viewModel.load()
     }
 }
 

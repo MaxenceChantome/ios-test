@@ -7,10 +7,16 @@
 
 import Foundation
 
-class ActivitiesViewModel: ObservableObject {
+protocol ActivitiesViewModelType: LoadableViewModelType {
+    init(apiManager: ApiManagerRoutes)
+    
+    var apiManager: ApiManagerRoutes { get }
+}
+
+class ActivitiesViewModel:  ActivitiesViewModelType {
     let apiManager: ApiManagerRoutes
     
-    @Published var state: State<[ActivityRowViewData]> = .idle
+    @Published var state: LoadingState<[ActivityRowViewData]> = .idle
     
     required init(apiManager: ApiManagerRoutes) {
         self.apiManager = apiManager
@@ -22,7 +28,9 @@ class ActivitiesViewModel: ObservableObject {
             guard let self = self else { return }
             switch response {
             case .success(let activities):
-                let viewData = activities.map { ActivityRowViewData(activity: $0) }
+                let viewData = activities
+                    .filter { !$0.isArchived }
+                    .map { ActivityRowViewData(activity: $0) }
                 self.state = .loaded(viewData)
             case .failure(let error):
                 self.state = .failed(error)

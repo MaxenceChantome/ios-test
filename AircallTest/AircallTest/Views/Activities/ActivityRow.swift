@@ -30,7 +30,13 @@ struct ActivityRowViewData: Identifiable {
 
 
 struct ActivityRow: View {
-    var activity: ActivityRowViewData
+    private let onArchive: (() -> Void)?
+    private let activity: ActivityRowViewData
+    
+    init(activity: ActivityRowViewData, onArchive: (() -> Void)?) {
+        self.activity = activity
+        self.onArchive = onArchive
+    }
     
     var body: some View {
         HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 16) {
@@ -54,12 +60,13 @@ struct ActivityRow: View {
             }
             
             Button(action: {
-                print("todo")
+                onArchive?()
             }, label: {
-                Image(systemName: "exclamationmark.circle")
-                    .font(.title2)
+                Image(systemName: "archivebox.circle")
+                    .font(.title)
                     .foregroundColor(Color.main)
             })
+            .buttonStyle(PlainButtonStyle())
         }
     }
 }
@@ -68,7 +75,7 @@ struct ActivityRow_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(Activities.mockedData) { activity in
             let viewData = ActivityRowViewData(activity: activity)
-            ActivityRow(activity: viewData)
+            ActivityRow(activity: viewData, onArchive: nil)
                 .previewLayout(.fixed(width: 400, height: 60))
         }
     }
