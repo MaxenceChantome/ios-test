@@ -31,57 +31,60 @@ struct ActivityDetailsViewData {
 }
 
 struct ActivityDetailsView: View {
+    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
     @State private var showArchiveConfirmation = false
     @ObservedObject private var viewModel: ActivityDetailsViewModel
+    private let onReloadList: (() -> Void)?
     
     
-    init(viewModel: ActivityDetailsViewModel) {
+    init(viewModel: ActivityDetailsViewModel, onReloadList: (() -> Void)?) {
         self.viewModel = viewModel
+        self.onReloadList = onReloadList
     }
     
     var body: some View {
-        VStack {
-            LoadableView(viewModel: viewModel) { activity in
-                VStack(alignment: .leading) {
-                    HStack(alignment: .center) {
-                        Spacer()
-                        CallStatusView(viewData: activity.status)
-                            .font(.largeTitle)
-                            .padding()
-                            .overlay(
-                                Circle().stroke(Color.main, lineWidth: 2)
-                            )
-                        Spacer()
-                        
+        ZStack {
+            VStack {
+                LoadableView(viewModel: viewModel) { activity in
+                    VStack(alignment: .leading) {
+                        HStack(alignment: .center) {
+                            Spacer()
+                            CallStatusView(viewData: activity.status)
+                                .font(.largeTitle)
+                                .padding()
+                                .overlay(
+                                    Circle().stroke(Color.main, lineWidth: 2)
+                                )
+                            Spacer()
+                        }
+                        HStack(alignment: .center) {
+                            Spacer()
+                            Text("\(activity.type)".uppercased())
+                                .font(.title)
+                            Spacer()
+                            
+                        }
+                        dateRow(activity: activity)
+                        callRow(activity: activity)
+                        ActionButton(title: "Archive", image: "archivebox.fill", onSelect: {
+                            showArchiveConfirmation.toggle()
+                        })
                     }
-                    HStack(alignment: .center) {
-                        Spacer()
-                        Text("\(activity.type)".uppercased())
-                            .font(.title)
-                        Spacer()
-                        
-                    }
-                    Divider()
-                    dateRow(activity: activity)
-                    Divider()
-                    callRow(activity: activity)
-                    Divider()
-                    ActionButton(title: "Archive", image: "archivebox.fill", onSelect: {
-                        showArchiveConfirmation.toggle()
-                    })
+                    .padding()
+                    .font(.body)
+                    Spacer()
                 }
-                .padding()
-                .font(.body)
-                Spacer()
-                ConfirmArchiveView(isPresented: $showArchiveConfirmation, id: .constant(viewModel.id), viewModel: .init(apiManager: viewModel.apiManager), onFinish: {
-                    //todo
-                })
             }
+            ConfirmArchiveView(isPresented: $showArchiveConfirmation, id: .constant(viewModel.id), viewModel: .init(apiManager: viewModel.apiManager), onFinish: {
+                presentationMode.wrappedValue.dismiss()
+                onReloadList?()
+            })
         }
     }
     
     private func dateRow(activity: ActivityDetailsViewData) -> some View {
         return VStack(alignment: .leading) {
+            Divider()
             Text(activity.date, style: .date)
             Text(activity.date, style: .time)
             Text(activity.duration)
@@ -91,9 +94,11 @@ struct ActivityDetailsView: View {
     
     private func callRow(activity: ActivityDetailsViewData) -> some View {
         return VStack(alignment: .leading) {
+            Divider()
             Text(activity.from)
             Text(activity.to)
             Text(activity.via)
+            Divider()
         }
     }
 }
@@ -101,6 +106,6 @@ struct ActivityDetailsView: View {
 struct RepositoryListView_Previews: PreviewProvider {
     static var previews: some View {
         let viewModel = ActivityDetailsViewModel(apiManager: MockApiManager(), id: 0)
-        ActivityDetailsView(viewModel: viewModel)
+        ActivityDetailsView(viewModel: viewModel, onReloadList: nil)
     }
 }

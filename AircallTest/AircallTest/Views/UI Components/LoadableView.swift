@@ -27,11 +27,16 @@ struct LoadableView<ViewModel: LoadableViewModelType, Content: View>: View {
             case .loading:
                 ProgressView()
             case .failed(let error):
-                ErrorView(error: error, retry: nil)
+                ErrorView(error: error.localizedDescription, onRetry: {
+                    viewModel.load()
+                })
             case .loaded(let output):
                 content(output)
+            case .empty:
+                ErrorView(error: "All calls seems archived, well done !", onRetry: {
+                    viewModel.load()
+                })
             }
         }
     }
-    
 }

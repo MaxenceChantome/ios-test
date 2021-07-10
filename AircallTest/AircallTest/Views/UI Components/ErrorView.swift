@@ -10,17 +10,17 @@ import SwiftUI
 
 struct ErrorView: View {
     private let onRetry: (() -> Void)?
-    private let error: Error
+    private let error: String
     
-    /// Init with error and function to trigger in order to retry api call
-    init(error: Error, retry: (() -> Void)?) {
+    /// Init with error message and function to trigger in order to retry api call
+    init(error: String, onRetry: (() -> Void)?) {
         self.error = error
-        self.onRetry = retry
+        self.onRetry = onRetry
     }
     
     var body: some View {
         VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 16) {
-            Text(error.localizedDescription)
+            Text(error)
                 .font(.body)
                 .multilineTextAlignment(.center)
             
@@ -33,8 +33,7 @@ struct ErrorView: View {
 
 struct ErrorView_Previews: PreviewProvider {
     static var previews: some View {
-        let error = NSError(domain: "", code: 400, userInfo: [NSLocalizedDescriptionKey: "An error occured"])
-        ErrorView(error: error, retry: nil)
+        ErrorView(error: "An error occured, please retry", onRetry: nil)
     }
 }
 

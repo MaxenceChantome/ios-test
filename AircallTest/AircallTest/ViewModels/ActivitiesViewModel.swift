@@ -31,7 +31,11 @@ class ActivitiesViewModel:  ActivitiesViewModelType {
                 let viewData = activities
                     .filter { !$0.isArchived }
                     .map { ActivityRowViewData(activity: $0) }
-                self.state = .loaded(viewData)
+                if viewData.isEmpty {
+                    self.state = .empty
+                } else {
+                    self.state = .loaded(viewData)
+                }
             case .failure(let error):
                 self.state = .failed(error)
             }

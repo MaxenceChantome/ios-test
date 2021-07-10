@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D44991ED2696273F005DC32A /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44991EC2696273F005DC32A /* State.swift */; };
+		D44991ED2696273F005DC32A /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44991EC2696273F005DC32A /* LoadingState.swift */; };
 		D44991F82696283E005DC32A /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44991F72696283E005DC32A /* ErrorView.swift */; };
 		D449920626963174005DC32A /* ActivityDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D449920526963174005DC32A /* ActivityDetailsView.swift */; };
 		D449921326964966005DC32A /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D449921226964966005DC32A /* ActionButton.swift */; };
@@ -54,7 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D44991EC2696273F005DC32A /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		D44991EC2696273F005DC32A /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
 		D44991F72696283E005DC32A /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		D449920526963174005DC32A /* ActivityDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsView.swift; sourceTree = "<group>"; };
 		D449921226964966005DC32A /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
@@ -118,7 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				D449923F26988B4D005DC32A /* ViewModelType.swift */,
-				D44991EC2696273F005DC32A /* State.swift */,
+				D44991EC2696273F005DC32A /* LoadingState.swift */,
 				D46EF76126939DD0005B6BA5 /* Extensions */,
 			);
 			path = Utils;
@@ -150,6 +150,7 @@
 				D46EF6F82693744D005B6BA5 /* AircallTestApp.swift */,
 				D46EF6FC2693744F005B6BA5 /* Assets.xcassets */,
 				D46EF7012693744F005B6BA5 /* Info.plist */,
+				D4C20646269A4984009963B3 /* ViewModels */,
 				D46EF72F269374DE005B6BA5 /* Views */,
 				D46EF72626937455005B6BA5 /* Models */,
 				D44991EB2696271F005DC32A /* Utils */,
@@ -196,31 +197,13 @@
 		D46EF72F269374DE005B6BA5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D4C88CB52694B33700C2D4C1 /* Components */,
-				D46EF73326937529005B6BA5 /* Activities */,
-				D46EF7342693754E005B6BA5 /* ActivityDetails */,
-				D4C20623269A08EF009963B3 /* Archive */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		D46EF73326937529005B6BA5 /* Activities */ = {
-			isa = PBXGroup;
-			children = (
 				D46EF73526937573005B6BA5 /* ActivitiesView.swift */,
 				D46EF75C269398F7005B6BA5 /* ActivityRow.swift */,
-				D46EF73D2693757D005B6BA5 /* ActivitiesViewModel.swift */,
-			);
-			path = Activities;
-			sourceTree = "<group>";
-		};
-		D46EF7342693754E005B6BA5 /* ActivityDetails */ = {
-			isa = PBXGroup;
-			children = (
-				D4C88CC02694B44C00C2D4C1 /* ActivityDetailsViewModel.swift */,
+				D4C20624269A0914009963B3 /* ArchiveView.swift */,
 				D449920526963174005DC32A /* ActivityDetailsView.swift */,
+				D4C88CB52694B33700C2D4C1 /* UI Components */,
 			);
-			path = ActivityDetails;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		D46EF742269375D6005B6BA5 /* Networking */ = {
@@ -253,16 +236,17 @@
 			path = Mock;
 			sourceTree = "<group>";
 		};
-		D4C20623269A08EF009963B3 /* Archive */ = {
+		D4C20646269A4984009963B3 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				D4C20624269A0914009963B3 /* ArchiveView.swift */,
+				D46EF73D2693757D005B6BA5 /* ActivitiesViewModel.swift */,
 				D4C20635269A11B7009963B3 /* ArchiveViewModel.swift */,
+				D4C88CC02694B44C00C2D4C1 /* ActivityDetailsViewModel.swift */,
 			);
-			path = Archive;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		D4C88CB52694B33700C2D4C1 /* Components */ = {
+		D4C88CB52694B33700C2D4C1 /* UI Components */ = {
 			isa = PBXGroup;
 			children = (
 				D4C88CB62694B36100C2D4C1 /* CallStatusView.swift */,
@@ -270,7 +254,7 @@
 				D449921226964966005DC32A /* ActionButton.swift */,
 				D449923A26987DDF005DC32A /* LoadableView.swift */,
 			);
-			path = Components;
+			path = "UI Components";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -421,7 +405,7 @@
 				D46EF744269375E8005B6BA5 /* ApiEndpoints.swift in Sources */,
 				D4C20636269A11B7009963B3 /* ArchiveViewModel.swift in Sources */,
 				D46EF6F92693744D005B6BA5 /* AircallTestApp.swift in Sources */,
-				D44991ED2696273F005DC32A /* State.swift in Sources */,
+				D44991ED2696273F005DC32A /* LoadingState.swift in Sources */,
 				D46EF749269375F4005B6BA5 /* ApiManager.swift in Sources */,
 				D4C88CEA2695D8DC00C2D4C1 /* String.swift in Sources */,
 				D46EF7282693748B005B6BA5 /* Activities.swift in Sources */,

@@ -14,4 +14,5 @@ enum LoadingState<T> {
     case loading
     case failed(Error)
     case loaded(T)
+    case empty
 }

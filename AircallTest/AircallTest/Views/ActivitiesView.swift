@@ -22,7 +22,9 @@ struct ActivitiesView : View {
                 VStack {
                     LoadableView(viewModel: viewModel) { activities in
                         List(activities) { activity in
-                            NavigationLink(destination: ActivityDetailsView(viewModel: .init(apiManager: viewModel.apiManager, id: activity.id))) {
+                            NavigationLink(destination: ActivityDetailsView(viewModel: .init(apiManager: viewModel.apiManager, id: activity.id), onReloadList: {
+                                viewModel.load()
+                            })) {
                                 ActivityRow(activity: activity, onArchive: {
                                     // if archive button is selected, select call id and show archive confirmation alert
                                     selectedCallId = activity.id
@@ -40,6 +42,7 @@ struct ActivitiesView : View {
             .navigationTitle("History")
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        
     }
 }
 
