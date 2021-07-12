@@ -28,9 +28,11 @@ class ActivitiesViewModel:  ActivitiesViewModelType {
             guard let self = self else { return }
             switch response {
             case .success(let activities):
+                // filter to show only non-archived calls
                 let viewData = activities
                     .filter { !$0.isArchived }
                     .map { ActivityRowViewData(activity: $0) }
+                // show empty state if data are empty
                 if viewData.isEmpty {
                     self.state = .empty
                 } else {

@@ -8,6 +8,8 @@
 import Foundation
 import SwiftUI
 
+// View used to load content when view appears
+// Allow a better control of differents state, and more flexibility if we need to show data / error / empty state...
 struct LoadableView<ViewModel: LoadableViewModelType, Content: View>: View {
     @ObservedObject var viewModel: ViewModel
     private let content: (ViewModel.Output) -> Content
