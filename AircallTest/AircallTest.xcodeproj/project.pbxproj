@@ -12,7 +12,7 @@
 		D449920626963174005DC32A /* ActivityDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D449920526963174005DC32A /* ActivityDetailsView.swift */; };
 		D449921326964966005DC32A /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D449921226964966005DC32A /* ActionButton.swift */; };
 		D449923B26987DDF005DC32A /* LoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D449923A26987DDF005DC32A /* LoadableView.swift */; };
-		D449924026988B4D005DC32A /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D449923F26988B4D005DC32A /* ViewModelType.swift */; };
+		D449924026988B4D005DC32A /* LoadableViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D449923F26988B4D005DC32A /* LoadableViewModelType.swift */; };
 		D44992532698BECA005DC32A /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44992522698BECA005DC32A /* Request.swift */; };
 		D46EF6F92693744D005B6BA5 /* AircallTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46EF6F82693744D005B6BA5 /* AircallTestApp.swift */; };
 		D46EF6FD2693744F005B6BA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D46EF6FC2693744F005B6BA5 /* Assets.xcassets */; };
@@ -59,7 +59,7 @@
 		D449920526963174005DC32A /* ActivityDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsView.swift; sourceTree = "<group>"; };
 		D449921226964966005DC32A /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		D449923A26987DDF005DC32A /* LoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableView.swift; sourceTree = "<group>"; };
-		D449923F26988B4D005DC32A /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		D449923F26988B4D005DC32A /* LoadableViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableViewModelType.swift; sourceTree = "<group>"; };
 		D44992522698BECA005DC32A /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		D46EF6F52693744D005B6BA5 /* AircallTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AircallTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D46EF6F82693744D005B6BA5 /* AircallTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircallTestApp.swift; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 		D44991EB2696271F005DC32A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				D449923F26988B4D005DC32A /* ViewModelType.swift */,
+				D449923F26988B4D005DC32A /* LoadableViewModelType.swift */,
 				D44991EC2696273F005DC32A /* LoadingState.swift */,
 				D46EF76126939DD0005B6BA5 /* Extensions */,
 			);
@@ -397,7 +397,7 @@
 				D44991F82696283E005DC32A /* ErrorView.swift in Sources */,
 				D4C88CC12694B44C00C2D4C1 /* ActivityDetailsViewModel.swift in Sources */,
 				D46EF75D269398F7005B6BA5 /* ActivityRow.swift in Sources */,
-				D449924026988B4D005DC32A /* ViewModelType.swift in Sources */,
+				D449924026988B4D005DC32A /* LoadableViewModelType.swift in Sources */,
 				D44992532698BECA005DC32A /* Request.swift in Sources */,
 				D46EF73E2693757D005B6BA5 /* ActivitiesViewModel.swift in Sources */,
 				D449921326964966005DC32A /* ActionButton.swift in Sources */,

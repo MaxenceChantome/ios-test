@@ -8,13 +8,13 @@
 import Foundation
 import Combine
 
-protocol ApiManagerRoutes {
+protocol ApiManagerType {
     func getActivities(completion: @escaping(Result<Activities, Error>) -> Void)
     func getActivity(id: Int, completion: @escaping(Result<Activity, Error>) -> Void)
     func archiveActivity(id: Int, completion: @escaping(Result<Activity, Error>) -> Void)
 }
 
-class ApiManager: ApiManagerRoutes {
+class ApiManager: ApiManagerType {
     private let baseUrl = "aircall-job.herokuapp.com"
     private var subscriber = Set<AnyCancellable>()
     
@@ -35,12 +35,13 @@ class ApiManager: ApiManagerRoutes {
 }
 
 extension ApiManager {
-    private func perform<T: Codable>(endpoint: ApiEndpoint, completion: @escaping (Result<T, Error>) -> Void) {
+    private func perform<T: Decodable>(endpoint: ApiEndpoint, completion: @escaping (Result<T, Error>) -> Void) {
         guard let url = endpoint.request?.getUrlRequest(base: baseUrl) else {
             return
         }
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601)
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
         
         URLSession.shared.dataTaskPublisher(for: url)
             .map { $0.data }

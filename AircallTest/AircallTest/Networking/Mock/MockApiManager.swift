@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MockApiManager: ApiManagerRoutes {
+class MockApiManager: ApiManagerType {
     func getActivities(completion: @escaping(Result<Activities, Error>) -> Void) {
         completion(.success(Activities.mockedData))
     }

@@ -8,35 +8,63 @@
 import XCTest
 
 class AircallTestUITests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
+    private var app: XCUIApplication!
+    
+    override func setUp() {
+        super.setUp()
+        
+        app = XCUIApplication()
+        app.launchArguments.append("--uitesting")
         app.launch()
+    }
+    
+    /// Test if activities list is presented and list is filled
+    func testActivitiesList() {
+        let list = app.tables["activitiesList"]
+        XCTAssertEqual(list.exists, true)
+        XCTAssertEqual(list.children(matching: .cell).count, 3)
 
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let row = list.cells.element(boundBy: 1)
+        XCTAssertEqual(row.exists, true)
+        
+        /// test if details view exists
+        row.tap()
+        XCTAssertEqual(app.staticTexts["typeText"].label, "MISSED CALL")
+        
     }
 
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
+    /// Test details view data
+    func testDetailsView() {
+        let list = app.tables["activitiesList"]
+        XCTAssertEqual(list.exists, true)
+        list.cells.element(boundBy: 2).tap()
+        
+        XCTAssertEqual(app.staticTexts["typeText"].label, "MISSED CALL")
+        XCTAssertEqual(app.staticTexts["dateText"].label, "April 19, 2018")
+        XCTAssertEqual(app.staticTexts["timeText"].label, "11:38 AM")
+        XCTAssertEqual(app.staticTexts["toText"].label, "To 06 46 62 12 33")
+        XCTAssertEqual(app.staticTexts["fromText"].label, "From Michel Drucker")
+        XCTAssertEqual(app.staticTexts["viaText"].label, "Via France 2")
+        
+        /// ArchiveView should be visible only after tapping archive button
+        let archiveView = app.staticTexts["archiveTitleText"]
+        XCTAssertEqual(archiveView.exists, false)
+        app.buttons["archiveButton"].tap()
+        XCTAssertEqual(archiveView.exists, true)
+    }
+    
+    /// Test if all elements in archive view are visible and view is dismissable
+    func testArchiveView() {
+        app.tables["activitiesList"].cells.element(boundBy: 0).tap()
+        app.buttons["archiveButton"].tap()
+
+        XCTAssertEqual(app.staticTexts["archiveTitleText"].label, "Archive call")
+        XCTAssertEqual(app.staticTexts["bodyText"].label, "Do you really want to archive this call ?")
+        XCTAssertEqual(app.buttons["confirmButton"].exists, true)
+        
+        /// After tapping cancel, view should be dismissed
+        app.buttons["cancelButton"].tap()
+        XCTAssertEqual(app.staticTexts["archiveTitleText"].exists, false)
     }
 }
+

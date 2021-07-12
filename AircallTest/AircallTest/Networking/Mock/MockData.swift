@@ -42,18 +42,15 @@ extension Activities {
 
 extension Activity {
     static var mockedData: Activity {
-        guard let activity = Activities.mockedData.first else {
-            return Activity(id: 7834,
-                            createdAt: "2018-04-19T09:38:41.000Z".iso8601Date() ?? Date(),
-                            direction: .outbound,
-                            from: "Michel Drucker",
-                            to: "06 46 62 12 33",
-                            via: "France 2",
-                            duration: "120",
-                            isArchived: false,
-                            callType: .missed)
-        }
-        return activity
+        return Activity(id: 7834,
+                        createdAt: "2018-04-19T09:38:41.000Z".iso8601Date() ?? Date(),
+                        direction: .outbound,
+                        from: "Michel Drucker",
+                        to: "06 46 62 12 33",
+                        via: "France 2",
+                        duration: "120",
+                        isArchived: false,
+                        callType: .missed)
     }
 }
 

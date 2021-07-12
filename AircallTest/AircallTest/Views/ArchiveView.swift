@@ -34,10 +34,12 @@ struct ConfirmArchiveView: View {
                         .frame(maxWidth: .infinity)
                         .background(Color.main)
                         .foregroundColor(Color.white)
+                        .accessibility(identifier: "archiveTitleText")
                     Text(viewModel.error ?? "Do you really want to archive this call ?")
                         .foregroundColor(viewModel.error != nil ? .red : .black)
                         .padding()
                         .multilineTextAlignment(.center)
+                        .accessibility(identifier: "bodyText")
                     Spacer()
                     if viewModel.isLoading {
                         ProgressView()
@@ -45,16 +47,19 @@ struct ConfirmArchiveView: View {
                     ActionButton(title: "Archive", image: "checkmark.circle.fill", backgroundColor: .green, onSelect: {
                         viewModel.archiveCall(id: id)
                     })
+                    .accessibility(identifier: "confirmButton")
                     
                     ActionButton(title: "Cancel", image: "xmark.circle.fill", backgroundColor: .red, onSelect: {
                         self.isPresented = false
                     })
                     .padding(.bottom, 16)
+                    .accessibility(identifier: "cancelButton")
                 }
                 .frame(width: 300, height: 350)
                 .background(Color.white)
                 .cornerRadius(20).shadow(radius: 20)
-            }.onChange(of: viewModel.isArchived) { isDone in
+            }
+            .onChange(of: viewModel.isArchived) { isDone in
                 if isDone {
                     onFinish?()
                     viewModel.isArchived = false

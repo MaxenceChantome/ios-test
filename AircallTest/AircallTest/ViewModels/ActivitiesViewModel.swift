@@ -8,17 +8,17 @@
 import Foundation
 
 protocol ActivitiesViewModelType: LoadableViewModelType {
-    init(apiManager: ApiManagerRoutes)
+    init(apiManager: ApiManagerType)
     
-    var apiManager: ApiManagerRoutes { get }
+    var apiManager: ApiManagerType { get }
 }
 
 class ActivitiesViewModel:  ActivitiesViewModelType {
-    let apiManager: ApiManagerRoutes
+    let apiManager: ApiManagerType
     
     @Published var state: LoadingState<[ActivityRowViewData]> = .idle
     
-    required init(apiManager: ApiManagerRoutes) {
+    required init(apiManager: ApiManagerType) {
         self.apiManager = apiManager
     }
     

@@ -10,7 +10,7 @@ import Foundation
 typealias Activities = [Activity]
 
 // MARK: - Activity
-struct Activity: Codable, Identifiable {
+struct Activity: Decodable, Identifiable {
     let id: Int
     let createdAt: Date
     let direction: Direction
@@ -19,24 +19,12 @@ struct Activity: Codable, Identifiable {
     let via, duration: String
     let isArchived: Bool
     let callType: CallType
-
-    enum CodingKeys: String, CodingKey {
-        case id
-        case createdAt = "created_at"
-        case direction
-        case from
-        case to
-        case via
-        case duration
-        case isArchived = "is_archived"
-        case callType = "call_type"
-    }
     
-    enum Direction: String, Codable {
+    enum Direction: String, Decodable {
         case inbound, outbound
     }
     
-    enum CallType: String, Codable {
+    enum CallType: String, Decodable {
         case missed, answered, voicemail
     }
 }

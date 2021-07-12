@@ -32,6 +32,7 @@ struct ActivitiesView : View {
                                 })
                             }
                         }
+                        .accessibility(identifier: "activitiesList")
                     }
                 }
                 ConfirmArchiveView(isPresented: $showArchiveConfirmation, id: $selectedCallId, viewModel: .init(apiManager: viewModel.apiManager), onFinish: {
@@ -42,9 +43,9 @@ struct ActivitiesView : View {
             .navigationTitle("History")
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        
     }
 }
+
 
 struct ActivtiesView_Previews: PreviewProvider {
     static var previews: some View {

@@ -24,7 +24,8 @@ struct AircallTestApp: App {
     
     var body: some Scene {
         WindowGroup {
-            let viewModel = ActivitiesViewModel(apiManager: ApiManager())
+            let apiManager: ApiManagerType = CommandLine.arguments.contains("--uitesting") ? MockApiManager() : ApiManager()
+            let viewModel = ActivitiesViewModel(apiManager: apiManager)
             ActivitiesView(viewModel: viewModel)
         }
     }

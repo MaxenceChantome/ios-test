@@ -35,6 +35,7 @@ struct CallStatusView: View {
     var body: some View {
         Image(systemName: viewData.imageName)
             .foregroundColor(viewData.color)
+            .accessibility(identifier: "callStatusView")
     }
 }
 

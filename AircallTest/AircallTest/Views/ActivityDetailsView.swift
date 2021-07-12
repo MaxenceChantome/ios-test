@@ -61,6 +61,7 @@ struct ActivityDetailsView: View {
                             Spacer()
                             Text("\(activity.type)".uppercased())
                                 .font(.title)
+                                .accessibility(identifier: "typeText")
                             Spacer()
                             
                         }
@@ -69,6 +70,7 @@ struct ActivityDetailsView: View {
                         ActionButton(title: "Archive", image: "archivebox.fill", onSelect: {
                             showArchiveConfirmation.toggle()
                         })
+                        .accessibility(identifier: "archiveButton")
                     }
                     .padding()
                     .font(.body)
@@ -86,7 +88,9 @@ struct ActivityDetailsView: View {
         return VStack(alignment: .leading) {
             Divider()
             Text(activity.date, style: .date)
+                .accessibility(identifier: "dateText")
             Text(activity.date, style: .time)
+                .accessibility(identifier: "timeText")
             Text(activity.duration)
                 .foregroundColor(.gray)
         }
@@ -96,8 +100,11 @@ struct ActivityDetailsView: View {
         return VStack(alignment: .leading) {
             Divider()
             Text(activity.from)
+                .accessibility(identifier: "fromText")
             Text(activity.to)
+                .accessibility(identifier: "toText")
             Text(activity.via)
+                .accessibility(identifier: "viaText")
             Divider()
         }
     }

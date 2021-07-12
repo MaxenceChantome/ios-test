@@ -48,6 +48,6 @@ struct ActionButton: View {
 struct ActionButton_Previews: PreviewProvider {
     static var previews: some View {
         ActionButton(title: "Archive", image: "archivebox.circle", onSelect: nil)
-            .previewLayout(.fixed(width: 300, height: 100))
+            .previewLayout(.sizeThatFits)
     }
 }

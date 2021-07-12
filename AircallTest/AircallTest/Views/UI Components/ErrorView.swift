@@ -33,7 +33,8 @@ struct ErrorView: View {
 
 struct ErrorView_Previews: PreviewProvider {
     static var previews: some View {
-        ErrorView(error: "An error occured, please retry", onRetry: nil)
+        ErrorView(error: "An error has occured, please retry", onRetry: nil)
+        
     }
 }
 

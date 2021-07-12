@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ArchiveViewModelType: ObservableObject {
-    init(apiManager: ApiManagerRoutes)
+    init(apiManager: ApiManagerType)
 
     var isLoading: Bool { get }
     var error: String? { get }
@@ -18,13 +18,13 @@ protocol ArchiveViewModelType: ObservableObject {
 }
 
 class ArchiveViewModel: ArchiveViewModelType {
-    private let apiManager: ApiManagerRoutes
+    private let apiManager: ApiManagerType
 
     @Published var isLoading  = false
     @Published var error: String?
     @Published var isArchived = false
     
-    required init(apiManager: ApiManagerRoutes) {
+    required init(apiManager: ApiManagerType) {
         self.apiManager = apiManager
     }
     
